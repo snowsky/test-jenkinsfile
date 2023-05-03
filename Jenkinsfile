@@ -17,8 +17,10 @@ pipeline {
                     tags_extra = "${params.BRANCH}"
                 }
                 echo "tags_extra: ${tags_extra}"
-                sh "pwd && ls -l"
-                sh './install.sh'
+                dir(GIT_CHECKOUT_DIR) {
+                    sh "pwd && ls -l"
+                    sh './install.sh'
+                }
             }
         }
         stage('stage two') {
