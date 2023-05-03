@@ -17,7 +17,7 @@ pipeline {
                     tags_extra = "${params.BRANCH}"
                 }
                 echo "tags_extra: ${tags_extra}"
-                sh './install.sh'
+                sh "${env.WORKSPACE}/install.sh"
             }
         }
         stage('stage two') {
