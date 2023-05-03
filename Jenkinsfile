@@ -17,7 +17,7 @@ pipeline {
                     tags_extra = "${params.BRANCH}"
                 }
                 echo "tags_extra: ${tags_extra}"
-                dir(${env.WORKSPACE}) {
+                dir("${env.WORKSPACE}") {
                     sh "pwd && ls -l"
                     sh './install.sh'
                 }
