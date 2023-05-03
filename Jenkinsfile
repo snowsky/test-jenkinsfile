@@ -24,6 +24,11 @@ pipeline {
                 #}
             }
         }
+        stage('Build') {
+            steps {
+                echo "tags_extra: ${tags_extra}"
+            }
+        }
         stage('Deploy') {
             steps {
                 echo "tags_extra: ${tags_extra}"
