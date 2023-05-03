@@ -2,7 +2,6 @@
 pipeline {
     agent any
     environment {
-        BUILD_RELEASE_VERSION = readMavenPom().getVersion().replace("-SNAPSHOT", "")
         GIT_TAG_COMMIT = sh(script: 'git describe --tags --always', returnStdout: true).trim()
     }
     stages {
