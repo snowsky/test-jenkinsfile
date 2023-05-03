@@ -11,26 +11,20 @@ pipeline {
     }
     
     stages {
-        stage('stage one') {
+        stage('Install') {
             steps {
                 script {
                     tags_extra = "${params.BRANCH}"
                 }
                 echo "tags_extra: ${tags_extra}"
-                dir("${env.WORKSPACE}") {
-                    sh "${env.WORKSPACE}/install.sh"
-                }
+                scp install.sh username@hostname:/tmp/install.sh
+                ssh username@hostname /tmp/install.sh
+                #dir("${env.WORKSPACE}") {
+                #    sh "${env.WORKSPACE}/install.sh"
+                #}
             }
         }
-        stage('stage two') {
-            steps {
-                echo "tags_extra: ${tags_extra}"
-            }
-        }
-        stage('stage three') {
-            when {
-                expression { tags_extra != 'bla' }
-            }
+        stage('Deploy') {
             steps {
                 echo "tags_extra: ${tags_extra}"
             }
