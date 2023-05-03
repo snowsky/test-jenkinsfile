@@ -18,7 +18,7 @@ pipeline {
                 }
                 echo "tags_extra: ${tags_extra}"
                 dir("${env.WORKSPACE}") {
-                    sh '${env.WORKSPACE}/install.sh'
+                    sh "${env.WORKSPACE}/install.sh"
                 }
             }
         }
