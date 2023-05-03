@@ -18,7 +18,7 @@ pipeline {
                 }
                 echo "tags_extra: ${tags_extra}"
                 sh "pwd && ls -l"
-                sh "${env.WORKSPACE}/install.sh"
+                sh '${env.WORKSPACE}/install.sh'
             }
         }
         stage('stage two') {
