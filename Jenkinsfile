@@ -17,7 +17,7 @@ pipeline {
                     tags_extra = "${params.BRANCH}"
                 }
                 echo "tags_extra: ${tags_extra}"
-                dir(GIT_CHECKOUT_DIR) {
+                dir(${env.WORKSPACE}) {
                     sh "pwd && ls -l"
                     sh './install.sh'
                 }
